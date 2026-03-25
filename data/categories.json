@@ -1,0 +1,18 @@
+{
+  "categories": [
+    { "id": "journalism", "label": "Journalism", "color": "#ef4444" },
+    { "id": "writing", "label": "Writing", "color": "#f59e0b" },
+    { "id": "pr-marketing", "label": "PR & Marketing", "color": "#8b5cf6" },
+    { "id": "broadcast", "label": "Broadcast", "color": "#06b6d4" },
+    { "id": "film-video", "label": "Film & Video", "color": "#ec4899" },
+    { "id": "design-visual", "label": "Design & Visual", "color": "#10b981" },
+    { "id": "performance", "label": "Performance", "color": "#f97316" },
+    { "id": "research", "label": "Research", "color": "#6366f1" }
+  ],
+  "layers": [
+    { "id": "ai-exposure", "label": "AI Exposure", "description": "How vulnerable each role is to AI displacement (0-10 scale)" },
+    { "id": "job-change", "label": "10yr Job Change", "description": "Actual employment change 2013-2023" },
+    { "id": "outlook", "label": "BLS Outlook", "description": "Bureau of Labor Statistics projected change 2022-2032" },
+    { "id": "wage", "label": "Median Wage", "description": "Annual median wage for each occupation" }
+  ]
+}

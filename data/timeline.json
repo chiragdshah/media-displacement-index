@@ -1,0 +1,39 @@
+{
+  "timeline": [
+    {
+      "year": 2005,
+      "label": "Peak newspaper employment",
+      "detail": "~375K total newspaper jobs across the U.S."
+    },
+    {
+      "year": 2008,
+      "label": "Financial crisis accelerates closures",
+      "detail": "Ad revenue collapses. Hundreds of papers fold or merge."
+    },
+    {
+      "year": 2010,
+      "label": "iPad launches, digital transition begins",
+      "detail": "Digital subscriptions start but never replace print revenue."
+    },
+    {
+      "year": 2014,
+      "label": "Half of newspaper jobs gone",
+      "detail": "Employment drops below 200K. \"Digital-first\" becomes survival mode."
+    },
+    {
+      "year": 2020,
+      "label": "COVID devastates remaining outlets",
+      "detail": "Local papers lose last-resort revenue: event ads, classifieds."
+    },
+    {
+      "year": 2022,
+      "label": "ChatGPT launches",
+      "detail": "A new era begins. Generative AI enters the newsroom."
+    },
+    {
+      "year": 2025,
+      "label": "87K newspaper jobs remain",
+      "detail": "Down 77% from peak. The collapse happened before AI."
+    }
+  ]
+}

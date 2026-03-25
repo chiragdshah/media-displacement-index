@@ -1,0 +1,44 @@
+{
+  "growingRoles": [
+    {
+      "title": "Producers & Directors",
+      "growth10yr": "+14%",
+      "projected": "+7%",
+      "wage": "$84K",
+      "why": "Creative vision, talent management, and production orchestration require human judgment. AI augments production workflows but cannot replace the orchestrator.",
+      "augmenters": ["Frame.io AI", "StudioBinder AI", "Scriptbook"]
+    },
+    {
+      "title": "Multimedia Artists & Animators",
+      "growth10yr": "+16%",
+      "projected": "+2%",
+      "wage": "$99K",
+      "why": "Demand for visual content is exploding. AI compresses timelines but high-end animation and art direction remain deeply human.",
+      "augmenters": ["Sora", "Runway Gen-3", "Midjourney"]
+    },
+    {
+      "title": "Sound Engineers",
+      "growth10yr": "+5%",
+      "projected": "+2%",
+      "wage": "$62K",
+      "why": "Podcast boom and live event growth drive demand. AI handles mastering and noise reduction, freeing engineers for creative work.",
+      "augmenters": ["iZotope AI", "LANDR", "Adobe Podcast AI"]
+    },
+    {
+      "title": "Market Research Analysts",
+      "growth10yr": "+18%",
+      "projected": "+13%",
+      "wage": "$68K",
+      "why": "Data-driven decision-making is growing everywhere. AI automates analysis but the strategic framing of research questions remains human.",
+      "augmenters": ["Qualtrics AI", "Tableau AI", "Claude"]
+    },
+    {
+      "title": "Actors",
+      "growth10yr": "+11%",
+      "projected": "+3%",
+      "wage": "$27K",
+      "why": "Streaming platforms and content demand are growing. SAG-AFTRA contracts now protect against unauthorized AI likenesses.",
+      "augmenters": ["Synthesia", "HeyGen", "ElevenLabs"]
+    }
+  ]
+}
