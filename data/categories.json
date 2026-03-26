@@ -12,7 +12,7 @@
   "layers": [
     { "id": "ai-exposure", "label": "AI Exposure", "description": "How vulnerable each role is to AI displacement (0-10 scale)" },
     { "id": "job-change", "label": "10yr Job Change", "description": "Actual employment change 2013-2023" },
-    { "id": "outlook", "label": "BLS Outlook", "description": "Bureau of Labor Statistics projected change 2022-2032" },
+    { "id": "outlook", "label": "BLS Outlook", "description": "Projected change 2023-2033 (BLS avg ~4%)" },
     { "id": "wage", "label": "Median Wage", "description": "Annual median wage for each occupation" }
   ]
 }

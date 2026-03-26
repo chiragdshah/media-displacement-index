@@ -1,44 +1,70 @@
 {
-  "growingRoles": [
-    {
-      "title": "Producers & Directors",
-      "growth10yr": "+14%",
-      "projected": "+7%",
-      "wage": "$84K",
-      "why": "Creative vision, talent management, and production orchestration require human judgment. AI augments production workflows but cannot replace the orchestrator.",
-      "augmenters": ["Frame.io AI", "StudioBinder AI", "Scriptbook"]
+  "narrativeLanes": {
+    "declining": {
+      "label": "The Decline Is Real",
+      "description": "Negative 10-year change, negative BLS outlook, high AI exposure. All signals point the same direction.",
+      "roles": [
+        {
+          "id": "proofreaders",
+          "narrative": "Grammarly and AI editors already outperform humans on speed and catch-rate. The role has been in terminal decline for a decade — AI is the final chapter."
+        },
+        {
+          "id": "reporters",
+          "narrative": "Wire copy, breaking news summaries, and routine beat coverage are exactly what LLMs produce. Down 26% in a decade, with no reversal in sight."
+        },
+        {
+          "id": "announcers",
+          "narrative": "Voice synthesis has reached broadcast quality. Traffic, weather, and overnight shifts are being automated. Only live event hosting retains human value."
+        },
+        {
+          "id": "survey_researchers",
+          "narrative": "AI can design, deploy, and analyze surveys faster than human teams. The smallest role in the index, and shrinking fast."
+        }
+      ]
     },
-    {
-      "title": "Multimedia Artists & Animators",
-      "growth10yr": "+16%",
-      "projected": "+2%",
-      "wage": "$99K",
-      "why": "Demand for visual content is exploding. AI compresses timelines but high-end animation and art direction remain deeply human.",
-      "augmenters": ["Sora", "Runway Gen-3", "Midjourney"]
+    "resilient": {
+      "label": "The Resilient",
+      "description": "Positive growth, strong outlook, low AI exposure. These roles are growing — and AI is accelerating them.",
+      "roles": [
+        {
+          "id": "producers_directors",
+          "narrative": "The orchestrator can't be automated. Creative vision, talent management, and production decisions require human judgment and relationships that no model can replicate."
+        },
+        {
+          "id": "pr_managers",
+          "narrative": "AI automates the briefing; humans still run the war room. Crisis response, stakeholder strategy, and organizational reputation require judgment that can't be templated."
+        },
+        {
+          "id": "art_directors",
+          "narrative": "More AI output means more need for human curation. The person who defines what should be made — and whether it's good enough — becomes more valuable, not less."
+        },
+        {
+          "id": "market_research",
+          "narrative": "Demand is outpacing automation. Every company wants to be data-driven, and AI is accelerating analysis — but the strategic framing of what to study and why still requires human expertise."
+        }
+      ]
     },
-    {
-      "title": "Sound Engineers",
-      "growth10yr": "+5%",
-      "projected": "+2%",
-      "wage": "$62K",
-      "why": "Podcast boom and live event growth drive demand. AI handles mastering and noise reduction, freeing engineers for creative work.",
-      "augmenters": ["iZotope AI", "LANDR", "Adobe Podcast AI"]
-    },
-    {
-      "title": "Market Research Analysts",
-      "growth10yr": "+18%",
-      "projected": "+13%",
-      "wage": "$68K",
-      "why": "Data-driven decision-making is growing everywhere. AI automates analysis but the strategic framing of research questions remains human.",
-      "augmenters": ["Qualtrics AI", "Tableau AI", "Claude"]
-    },
-    {
-      "title": "Actors",
-      "growth10yr": "+11%",
-      "projected": "+3%",
-      "wage": "$27K",
-      "why": "Streaming platforms and content demand are growing. SAG-AFTRA contracts now protect against unauthorized AI likenesses.",
-      "augmenters": ["Synthesia", "HeyGen", "ElevenLabs"]
+    "turnaround": {
+      "label": "The Turnaround",
+      "description": "Negative 10-year change, but positive BLS outlook. The bleeding may have stopped — these roles are stabilizing or pivoting.",
+      "roles": [
+        {
+          "id": "photographers",
+          "narrative": "Stock photography was gutted by AI, but editorial, event, and portrait photography are stabilizing. Presence and human connection can't be generated."
+        },
+        {
+          "id": "broadcast_technicians",
+          "narrative": "Physical equipment operation and live event management are durable. After a decade of decline, BLS projects stabilization as live content demand holds."
+        },
+        {
+          "id": "advertising_managers",
+          "narrative": "The only role that declined historically but has the strongest projected growth (+6%). AI is compressing production teams but increasing demand for strategic campaign oversight."
+        },
+        {
+          "id": "graphic_designers",
+          "narrative": "Commodity design (social posts, ad variants) is under serious AI pressure, but BLS still projects modest growth. The role is shifting from execution to brand systems and creative direction."
+        }
+      ]
     }
-  ]
+  }
 }

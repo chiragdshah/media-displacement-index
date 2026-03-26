@@ -12,33 +12,39 @@
 
 The Media Displacement Index maps 22 Bureau of Labor Statistics occupations — representing 2.8 million workers in media and communications — against four data layers:
 
-- **AI Exposure** — a 0–10 score measuring how much AI is reshaping each role
+- **AI Exposure** — a 0–10 score measuring how vulnerable each role is to AI displacement
 - **10-Year Job Change** — actual employment change from 2013–2023
-- **BLS Outlook** — projected change from 2022–2032
+- **BLS Outlook** — projected change from 2023–2033 (BLS average ~4%)
 - **Median Wage** — annual median wage for each occupation
 
-Each occupation also includes a **Displacement Stack**: the specific commercial AI products currently targeting that role's core workflow. Not theoretical — products with funding, users, and traction.
+Each occupation also includes a **Displacement Stack** (specific commercial AI products targeting that role), **education requirements**, and links to BLS source data with disclaimers where BLS combines occupations.
 
-Inspired by [Andrej Karpathy's US Job Market Visualizer](https://karpathy.github.io/bm/).
+Inspired by [Andrej Karpathy's US Job Market Visualizer](https://github.com/karpathy/jobs).
 
 ## The Three-Act Structure
 
-The visualization tells its story in three acts:
+**Act I: The Collapse Already Happened.** Before AI wrote a single word, the media industry was already in free fall. A timeline showing two decades of decline — newspapers were the canary in the coal mine, but broadcast, publishing, and local media contracted across the board. 9 of 22 media roles were already declining before generative AI arrived.
 
-**Act I: The Collapse Already Happened.** A timeline showing that newspaper employment dropped 77% — from 375K jobs to 87K — *before* generative AI arrived. The disruption everyone fears already played out, driven by the internet, not AI.
+**Act II: Now AI Is Redrawing the Map.** An interactive treemap sized by employment, colored by your chosen data layer. AI isn't eliminating media jobs across the board — it's reorganizing them. The production layer (writing, editing, design execution) is compressing, while strategic roles (directors, managers) hold steady or grow. Click any occupation for full details.
 
-**Act II: The Treemap.** An interactive treemap sized by employment, colored by your chosen data layer. Click any occupation to see its AI Exposure rationale, displacement stack, and BLS data. Toggle between layers to see the story shift.
+**Act III: Three Stories From the Data.** By combining AI exposure scores, 10-year employment change, and BLS projected outlook, three distinct patterns emerge:
 
-**Act III: What's Growing.** Not everything is declining. Producers & Directors (+14%), Multimedia Artists (+16%), and Market Research Analysts (+18%) are growing — because AI augments the orchestrator, not replaces them.
+- **The Decline Is Real** — Proofreaders, Reporters, Announcers, Survey Researchers. Negative on all three metrics. All signals point the same direction.
+- **The Resilient** — Producers & Directors, PR Managers, Art Directors, Market Research Analysts. Growing with low AI exposure. The orchestrator can't be automated.
+- **The Turnaround** — Photographers, Broadcast Technicians, Advertising Managers, Graphic Designers. Negative 10-year change but positive BLS outlook. The bleeding may have stopped.
 
 ## Data Sources
 
 | Source | What it provides |
 |--------|-----------------|
-| [BLS Occupational Outlook Handbook](https://www.bls.gov/ooh/) | 10-year projections (2022–2032), job descriptions |
-| [BLS Occupational Employment & Wage Statistics](https://www.bls.gov/oes/) | Employment counts, median wages (May 2023) |
-| [Pew Research Center](https://www.pewresearch.org/) | Newspaper employment trends |
+| [BLS Occupational Outlook Handbook](https://www.bls.gov/ooh/) | Employment (incl. self-employed), wages, 10-year projections (2023–2033) |
+| [BLS Occupational Employment & Wage Statistics](https://www.bls.gov/oes/) | Granular employment by SOC code (May 2023) — used where OOH combines occupations |
+| [Pew Research Center](https://www.pewresearch.org/topics/state-of-the-news-media/) | Media employment trends |
 | [Northwestern Medill State of Local News 2024](https://localnewsinitiative.northwestern.edu/) | Local news decline data |
+
+### Hybrid sourcing approach
+
+Most occupations use OOH 2024 data (which includes self-employed workers). However, BLS combines some occupations on OOH pages — for example, "Advertising, Promotions, and Marketing Managers" lumps 434,000 jobs together. Where this happens, we use granular OES data by SOC code to isolate the media-specific role. Each affected occupation has a `blsNote` field explaining the sourcing. See `occupations.json` metadata for full details.
 
 ## AI Exposure Methodology
 
@@ -54,9 +60,22 @@ The full scoring prompt is published in [`scoring-prompt.md`](scoring-prompt.md)
 ### Honest limitations
 
 - These scores represent one model's judgment at one point in time. They are directional, not definitive.
-- The prompt was designed for media/communications roles. Applying it to other industries may require recalibration.
+- An LLM scoring LLM replaceability has an obvious self-referential bias.
+- Exposure ≠ displacement — demand elasticity, regulation, and union contracts shape outcomes.
+- "Writers & Authors" lumps novelists with SEO writers. BLS categories are coarse.
 - AI capabilities are moving fast. A score of 4 today could be a 7 in 18 months.
 - We publish the prompt precisely so you can disagree with us and do it better.
+
+## Data Schema
+
+Each occupation in `data/occupations.json` contains:
+
+```
+id, title, employment, medianWage, jobChange10yr, outlook10yr,
+aiScore, aiRationale, blsUrl, blsNote?, education, category, displacers[]
+```
+
+The `blsNote` field appears on occupations where BLS combines roles on the OOH page, explaining the sourcing difference. The `education` field contains the BLS typical entry-level education requirement.
 
 ## Tech Stack
 
@@ -79,7 +98,7 @@ npm run dev
 This project is designed to be forked and adapted. Here's how:
 
 ### Add or edit occupations
-Edit `data/occupations.json`. Each occupation needs an `id`, `title`, `employment`, `medianWage`, `jobChange10yr`, `outlook10yr`, `aiScore`, `aiRationale`, `blsUrl`, `category`, and `displacers` array. The treemap, key panel, and tooltips adapt automatically.
+Edit `data/occupations.json`. Each occupation needs: `id`, `title`, `employment`, `medianWage`, `jobChange10yr`, `outlook10yr`, `aiScore`, `aiRationale`, `blsUrl`, `education`, `category`, and `displacers` array. Optionally add `blsNote` for sourcing disclaimers. The treemap, key panel, and tooltips adapt automatically.
 
 ### Update the AI scores
 Copy the prompt from `scoring-prompt.md` into your preferred LLM. Feed it a BLS occupation description. Paste the score and rationale back into `occupations.json`.
@@ -110,8 +129,8 @@ The visualization code doesn't care what industry the data represents. It reads 
 
 Built by [Crestwood Digital](https://crestwood.digital). Inspired by [Andrej Karpathy](https://karpathy.ai/).
 
-Data from the U.S. Bureau of Labor Statistics. AI Exposure scores generated by Claude (Anthropic).
+Data from the [U.S. Bureau of Labor Statistics](https://www.bls.gov/). AI Exposure scores generated by [Claude](https://claude.ai) (Anthropic). Media decline data from [Pew Research Center](https://www.pewresearch.org/).
 
 ---
 
-*If you build a version for your industry, we'd love to see it. Open an issue or tag [@cabornemedia](https://x.com/cabornemedia).*
+*If you build a version for your industry, we'd love to see it. Open an issue or tag [@chiragdshah](https://x.com/chiragdshah).*
